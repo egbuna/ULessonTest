@@ -9,7 +9,7 @@
 
     <ImageView
         android:id="@+id/subject_view"
-        android:layout_width="155dp"
+        android:layout_width="135dp"
         android:layout_height="77dp"
         android:textColor="@color/black"
         tools:src="@drawable/mathematics"/>

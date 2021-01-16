@@ -3,14 +3,17 @@ package com.example.ulessontest.ui.dashboard
 import android.util.Log
 import android.view.View
 import androidx.constraintlayout.widget.ConstraintSet
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.core.di.network.NetworkStatus
 import com.example.ulessontest.R
 import com.example.ulessontest.databinding.FragmentDashboardBinding
 import com.example.ulessontest.ui.base.BaseFragment
+import com.example.ulessontest.ui.detail.SubjectDetailFragment
 import com.global.gomoney.utils.viewbinding.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -25,7 +28,7 @@ class DashBoardFragment : BaseFragment(R.layout.fragment_dashboard) {
     override fun setUp(view: View) {
         setUpObserver()
         subjectAdapter = SubjectAdapter {
-
+            findNavController().navigate(DashBoardFragmentDirections.actionDashBoardFragmentToSubjectDetailFragment(it))
         }
         binding.subjectsRecyclerview.setHasFixedSize(true)
         binding.subjectsRecyclerview.layoutManager = GridLayoutManager(requireContext(), 2)
