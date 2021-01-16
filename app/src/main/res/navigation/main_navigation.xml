@@ -24,6 +24,23 @@
         <argument
             android:name="subject"
             app:argType="com.example.core.di.model.SubjectAndLesson"/>
+        <action
+            android:id="@+id/action_subjectDetailFragment_to_playMediaFragment"
+            app:destination="@id/playMediaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/playMediaFragment"
+        android:name="com.example.ulessontest.ui.player.PlayMediaFragment"
+        android:label="PlayMediaFragment"
+        tools:layout="@layout/fragment_play_media">
+
+        <argument
+            android:name="lesson"
+            app:argType="com.example.core.di.model.Lesson"/>
+
+        <argument
+            android:name="chapter"
+            app:argType="string"/>
     </fragment>
 
 </navigation>
