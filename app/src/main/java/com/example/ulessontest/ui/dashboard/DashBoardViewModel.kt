@@ -8,7 +8,7 @@ import androidx.lifecycle.switchMap
 import javax.inject.Inject
 
 class DashBoardViewModel
-    @ViewModelInject constructor(dashBoardRepository: DashBoardRepository): ViewModel() {
+    @ViewModelInject constructor(private val dashBoardRepository: DashBoardRepository): ViewModel() {
 
     private val _getSubjectMutableLiveData = MutableLiveData<Unit>()
     val getSubjectLiveData = _getSubjectMutableLiveData.switchMap {
@@ -20,4 +20,6 @@ class DashBoardViewModel
     init {
         _getSubjectMutableLiveData.value = Unit
     }
+
+    suspend fun getRecentlyWatchedVideos() = dashBoardRepository.fetchRecentlyWatchedVideo()
 }

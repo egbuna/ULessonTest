@@ -12,4 +12,9 @@
     <color name="shimmer_bg">#D3D3D3</color>
     <color name="detail_title_color">#313848</color>
     <color name="background_color">#E5E5E5</color>
+    <color name="biology_color">#4DA47E</color>
+    <color name="chemistry_color">#F9AD6D</color>
+    <color name="maths_color">#EA7052</color>
+    <color name="physics_color">#7B7FDA</color>
+    <color name="english_color">#506AAC</color>
 </resources>

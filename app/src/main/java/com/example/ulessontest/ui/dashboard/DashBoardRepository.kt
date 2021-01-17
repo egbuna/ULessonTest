@@ -6,8 +6,10 @@ import com.example.core.di.data.ULessonDataManager
 import com.example.core.di.model.SubjectAndLesson
 import com.example.core.di.model.SubjectResponse
 import com.example.core.di.network.NetworkStatus
+import com.example.core.di.room.entities.RecentlyWatched
 import com.example.core.di.util.DispatcherProvider
 import com.example.ulessontest.utils.BaseRepository
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class DashBoardRepository
@@ -17,5 +19,9 @@ class DashBoardRepository
         return processResponseAsLiveData {
             uLessonDataManager.getSubjectsAndDetails()
         }
+    }
+
+    suspend fun fetchRecentlyWatchedVideo(): List<RecentlyWatched> {
+        return withContext(dispatcherProvider.io()) {return@withContext uLessonDataManager.getRecentlyWatchedVideos()}
     }
 }

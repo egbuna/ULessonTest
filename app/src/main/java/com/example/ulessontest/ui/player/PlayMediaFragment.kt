@@ -1,24 +1,32 @@
 package com.example.ulessontest.ui.player
 
 import android.view.View
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.bumptech.glide.Glide
+import com.example.core.di.room.entities.RecentlyWatched
 import com.example.ulessontest.R
 import com.example.ulessontest.databinding.FragmentPlayMediaBinding
 import com.example.ulessontest.ui.base.BaseFragment
 import com.global.gomoney.utils.viewbinding.viewBinding
-import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.MediaItem
-import com.google.android.exoplayer2.Player
 import com.google.android.exoplayer2.SimpleExoPlayer
+import com.google.android.exoplayer2.ui.PlayerView
 import com.google.android.exoplayer2.util.Util
-import com.google.android.exoplayer2.video.VideoListener
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.util.*
 
-class PlayMediaFragment : BaseFragment(R.layout.fragment_play_media), Player.EventListener {
+@AndroidEntryPoint
+class PlayMediaFragment : BaseFragment(R.layout.fragment_play_media) {
 
     private val binding by viewBinding(FragmentPlayMediaBinding::bind)
     private val args by navArgs<PlayMediaFragmentArgs>()
     private val lesson by lazy { args.lesson }
+
+    private val viewModel: PlayMediaViewModel by viewModels()
 
     private var player: SimpleExoPlayer? = null
 
@@ -28,39 +36,22 @@ class PlayMediaFragment : BaseFragment(R.layout.fragment_play_media), Player.Eve
 
     override fun setUp(view: View) {
         binding.lessonTitle.text = lesson.name
-        binding.chapterTitle.text = args.chapter
+        binding.chapterTitle.text = args.info.chapter
 
-
-        binding.videoPlayer.setControllerVisibilityListener {
-            when(it) {
-                View.GONE -> {
-                    binding.controlContainer.animate().alpha(0f).setDuration(450L).start()
-                }
-                View.VISIBLE -> {
-                    binding.controlContainer.animate().alpha(1f).setDuration(450L).start()
-                }
-            }
+        binding.exit.setOnClickListener {
+            findNavController().popBackStack()
         }
 
-    }
+        binding.videoPlayer.setShowNextButton(false)
+        binding.videoPlayer.setShowPreviousButton(false)
+        binding.videoPlayer.setShowBuffering(PlayerView.SHOW_BUFFERING_WHEN_PLAYING)
 
-    override fun onPlaybackStateChanged(state: Int) {
-        when(state) {
-            ExoPlayer.STATE_IDLE -> {}
-            ExoPlayer.STATE_BUFFERING -> {
-                binding.progressCircular.visibility = View.VISIBLE
-            }
-            ExoPlayer.STATE_READY -> {
-                binding.progressCircular.visibility = View.GONE
-            }
-            ExoPlayer.STATE_ENDED -> {}
-        }
     }
 
     override fun onStart() {
         super.onStart()
         if (Util.SDK_INT >= 24) {
-            initializePlayer();
+            initializePlayer()
         }
     }
 
@@ -83,9 +74,17 @@ class PlayMediaFragment : BaseFragment(R.layout.fragment_play_media), Player.Eve
         binding.videoPlayer.player = player
         val mediaItem = MediaItem.fromUri(lesson.mediaUrl)
         player?.setMediaItem(mediaItem)
-        player?.addListener(this)
         player?.seekTo(currentWindow, playbackPosition)
         player?.prepare()
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.saveRecentlyWatchedVideo(buildRecentlyVideoData())
+        }
+    }
+
+    private fun buildRecentlyVideoData(): RecentlyWatched {
+        return RecentlyWatched(args.info.chapter, lesson.name, lesson.mediaUrl, args.info.subject, SimpleDateFormat().format(
+            Date()), lesson.icon)
     }
 
     private fun releasePlayer() {
@@ -93,7 +92,6 @@ class PlayMediaFragment : BaseFragment(R.layout.fragment_play_media), Player.Eve
             playWhenReady = player?.playWhenReady ?: false
             playbackPosition = player?.currentPosition ?: 0
             currentWindow = player?.currentWindowIndex ?: 1
-            player?.removeListener(this)
             player?.release()
             player = null
         }

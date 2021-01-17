@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_dashBoardFragment_to_subjectDetailFragment"
             app:destination="@id/subjectDetailFragment" />
+        <action
+            android:id="@+id/action_dashBoardFragment_to_recentFragment"
+            app:destination="@id/recentFragment" />
     </fragment>
 
     <fragment
@@ -39,8 +42,13 @@
             app:argType="com.example.core.di.model.Lesson"/>
 
         <argument
-            android:name="chapter"
-            app:argType="string"/>
+            android:name="info"
+            app:argType="com.example.core.di.model.MoreInfo"/>
     </fragment>
+    <fragment
+        android:id="@+id/recentFragment"
+        android:name="com.example.ulessontest.ui.recent.RecentFragment"
+        android:label="RecentFragment"
+        tools:layout="@layout/fragment_recent"/>
 
 </navigation>

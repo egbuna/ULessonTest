@@ -51,6 +51,7 @@
         android:layout_height="wrap_content"
         android:text="@string/recently_watched_topics"
         android:textSize="24sp"
+        android:visibility="invisible"
         android:layout_marginTop="25dp"
         android:layout_marginStart="16dp"
         android:textColor="@color/title_color"
@@ -79,6 +80,7 @@
         android:layout_marginBottom="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
+        android:visibility="gone"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -93,6 +95,7 @@
             android:background="@drawable/ic_mask_group" />
 
         <TextView
+            android:id="@+id/view_all"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/view_all"
