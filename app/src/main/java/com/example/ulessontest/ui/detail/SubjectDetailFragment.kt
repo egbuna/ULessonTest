@@ -21,7 +21,9 @@ class SubjectDetailFragment : BaseFragment(R.layout.fragment_subject_detail) {
         binding.title.text = args.subject.name
         binding.exit.setOnClickListener { findNavController().popBackStack() }
 
-        val chapterAdapter = ChapterAdapter()
+        val chapterAdapter = ChapterAdapter {lesson, chapter ->
+            findNavController().navigate(SubjectDetailFragmentDirections.actionSubjectDetailFragmentToPlayMediaFragment(lesson, chapter))
+        }
 
         binding.chapterRecyclerView.setHasFixedSize(true)
         binding.chapterRecyclerView.layoutManager = LinearLayoutManager(requireContext())

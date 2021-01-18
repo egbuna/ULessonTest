@@ -9,7 +9,7 @@ import com.example.core.di.model.Lesson
 import com.example.ulessontest.R
 import com.example.ulessontest.databinding.LessonLayoutItemBinding
 
-class LessonAdapter : RecyclerView.Adapter<LessonAdapter.ViewHolder>() {
+class LessonAdapter(val onCLick: (lesson: Lesson) -> Unit) : RecyclerView.Adapter<LessonAdapter.ViewHolder>() {
 
     private var lessons: List<Lesson> = emptyList()
 
@@ -35,6 +35,11 @@ class LessonAdapter : RecyclerView.Adapter<LessonAdapter.ViewHolder>() {
 
     inner class ViewHolder(private val binding: LessonLayoutItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
+        init {
+            binding.root.setOnClickListener {
+                onCLick.invoke(lessons[adapterPosition])
+            }
+        }
         fun bind(lesson: Lesson) {
             binding.lessonTitle.text = lesson.name
             Glide.with(binding.lessonImage.context).load(lesson.icon).transform(CenterInside()).into(binding.lessonImage)

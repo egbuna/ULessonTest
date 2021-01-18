@@ -5,10 +5,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.core.di.model.Chapter
+import com.example.core.di.model.Lesson
 import com.example.ulessontest.R
 import com.example.ulessontest.databinding.ChaptersLayoutItemBinding
 
-class ChapterAdapter : RecyclerView.Adapter<ChapterAdapter.ViewHolder>() {
+class ChapterAdapter(val onClick: (lesson: Lesson, chapter: String) -> Unit) : RecyclerView.Adapter<ChapterAdapter.ViewHolder>() {
 
     private var chapters: List<Chapter> = emptyList()
 
@@ -34,7 +35,9 @@ class ChapterAdapter : RecyclerView.Adapter<ChapterAdapter.ViewHolder>() {
 
     inner class ViewHolder(private val binding: ChaptersLayoutItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        var lessonAdapter: LessonAdapter = LessonAdapter()
+        var lessonAdapter: LessonAdapter = LessonAdapter {
+            onClick.invoke(it, chapters[adapterPosition].name)
+        }
 
         fun bind(chapter: Chapter) {
             binding.title.text = chapter.name
