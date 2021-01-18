@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.facebook.shimmer.ShimmerFrameLayout
+    android:id="@+id/shimmer_root"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:rowCount="2"
+        android:columnCount="2">
+
+        <include
+            layout="@layout/subject_shimmer_item"
+            android:layout_width="155dp"
+            android:layout_height="77dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"/>
+
+        <include
+            layout="@layout/subject_shimmer_item"
+            android:layout_width="155dp"
+            android:layout_height="77dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"/>
+
+        <include
+            layout="@layout/subject_shimmer_item"
+            android:layout_width="155dp"
+            android:layout_height="77dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"/>
+
+        <include
+            layout="@layout/subject_shimmer_item"
+            android:layout_width="155dp"
+            android:layout_height="77dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"/>
+
+        <include
+            layout="@layout/subject_shimmer_item"
+            android:layout_width="155dp"
+            android:layout_height="77dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"/>
+
+    </GridLayout>
+
+</com.facebook.shimmer.ShimmerFrameLayout>
