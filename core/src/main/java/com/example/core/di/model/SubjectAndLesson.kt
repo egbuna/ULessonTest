@@ -1,7 +1,9 @@
 package com.example.core.di.model
 
+import android.os.Parcelable
 import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
 data class SubjectResponse(
         @SerializedName("status")
@@ -11,6 +13,7 @@ data class SubjectResponse(
         val subjects: List<SubjectAndLesson>
 )
 @Keep
+@Parcelize
 data class SubjectAndLesson(
         @SerializedName("id")
         val id: String,
@@ -20,8 +23,9 @@ data class SubjectAndLesson(
         val icon: String,
         @SerializedName("chapters")
         val chapters: List<Chapter>
-)
+) : Parcelable
 
+@Parcelize
 data class Chapter(
         @SerializedName("id")
         val id: String,
@@ -29,8 +33,9 @@ data class Chapter(
         val name: String,
         @SerializedName("lessons")
         val lessons: List<Lesson>
-)
+) : Parcelable
 
+@Parcelize
 data class Lesson(
         @SerializedName("id")
         val id: String,
@@ -44,4 +49,4 @@ data class Lesson(
         val subjectId: Int,
         @SerializedName("chapter_id")
         val chapterId: Int
-)
+) : Parcelable
