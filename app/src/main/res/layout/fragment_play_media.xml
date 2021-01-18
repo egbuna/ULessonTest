@@ -5,16 +5,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageButton
-        android:id="@+id/exit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_back_button"
-        android:layout_marginTop="32dp"
-        android:layout_marginStart="16dp"
-        android:background="@android:color/transparent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
 
     <com.google.android.exoplayer2.ui.PlayerView
         android:id="@+id/video_player"
@@ -25,14 +15,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <ProgressBar
-        android:id="@+id/progress_circular"
+    <ImageButton
+        android:id="@+id/exit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@+id/video_player"
-        app:layout_constraintEnd_toEndOf="@id/video_player"
-        app:layout_constraintBottom_toBottomOf="@+id/video_player"
-        app:layout_constraintStart_toStartOf="@id/video_player"/>
+        android:src="@drawable/ic_back_button"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="16dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <LinearLayout
         android:id="@+id/control_container"

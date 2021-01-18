@@ -62,6 +62,10 @@ object AppModule {
     @Provides
     fun provideULessonDataManager(uLessonDataManager: DataManager) = uLessonDataManager
 
+    @Singleton
+    @Provides
+    fun provideRecentlyWatchedDao(uLessonDatabase: ULessonDatabase) = uLessonDatabase.recentlyWatchedDao()
+
 }
 
 @Module
