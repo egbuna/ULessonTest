@@ -1,6 +1,6 @@
-package com.example.core.di.network
+package com.example.core.network
 
-import com.example.core.di.model.ApiResponse
+import com.example.core.model.ApiResponse
 
 sealed class NetworkStatus<T>(data: T? = null, message: String? = null, apiResponse: ApiResponse<T>? = null) {
     data class Success<T>(val data: T?, val apiResponse: ApiResponse<T>? = null) : NetworkStatus<T>(data, apiResponse = apiResponse)

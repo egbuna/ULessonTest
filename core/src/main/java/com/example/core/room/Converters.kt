@@ -1,9 +1,9 @@
-package com.example.core.di.room
+package com.example.core.room
 
 import androidx.room.TypeConverter
-import com.example.core.di.model.Chapter
-import com.example.core.di.model.Lesson
-import com.example.core.di.util.AppUtil
+import com.example.core.model.Chapter
+import com.example.core.model.Lesson
+import com.example.core.util.AppUtil
 import com.google.gson.reflect.TypeToken
 
 class Converters {

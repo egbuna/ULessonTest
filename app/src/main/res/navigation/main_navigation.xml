@@ -38,7 +38,7 @@
 
         <argument
             android:name="subject"
-            app:argType="com.example.core.di.model.SubjectAndLesson"/>
+            app:argType="com.example.core.model.SubjectAndLesson"/>
         <action
             android:id="@+id/action_subjectDetailFragment_to_playMediaFragment"
             app:destination="@id/playMediaFragment"
@@ -54,11 +54,11 @@
 
         <argument
             android:name="lesson"
-            app:argType="com.example.core.di.model.Lesson"/>
+            app:argType="com.example.core.model.Lesson"/>
 
         <argument
             android:name="info"
-            app:argType="com.example.core.di.model.MoreInfo"/>
+            app:argType="com.example.core.model.MoreInfo"/>
     </fragment>
     <fragment
         android:id="@+id/recentFragment"

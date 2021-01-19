@@ -1,13 +1,11 @@
 package com.example.ulessontest.ui.dashboard
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
-import com.example.core.di.data.ULessonDataManager
-import com.example.core.di.model.SubjectAndLesson
-import com.example.core.di.model.SubjectResponse
-import com.example.core.di.network.NetworkStatus
-import com.example.core.di.room.entities.RecentlyWatched
-import com.example.core.di.util.DispatcherProvider
+import com.example.core.data.ULessonDataManager
+import com.example.core.model.SubjectAndLesson
+import com.example.core.network.NetworkStatus
+import com.example.core.room.entities.RecentlyWatched
+import com.example.core.util.DispatcherProvider
 import com.example.ulessontest.utils.BaseRepository
 import kotlinx.coroutines.withContext
 import javax.inject.Inject

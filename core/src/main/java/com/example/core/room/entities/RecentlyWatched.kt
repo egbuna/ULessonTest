@@ -1,4 +1,4 @@
-package com.example.core.di.room.entities
+package com.example.core.room.entities
 
 import androidx.room.Entity
 

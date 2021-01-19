@@ -1,15 +1,15 @@
-package com.example.core.di.room
+package com.example.core.room
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.example.core.di.model.SubjectAndLesson
-import com.example.core.di.room.dao.RecentlyWatchedDao
-import com.example.core.di.room.dao.SubjectsDataDao
-import com.example.core.di.room.entities.RecentlyViewed
-import com.example.core.di.room.entities.RecentlyWatched
+import com.example.core.model.SubjectAndLesson
+import com.example.core.room.dao.RecentlyWatchedDao
+import com.example.core.room.dao.SubjectsDataDao
+import com.example.core.room.entities.RecentlyViewed
+import com.example.core.room.entities.RecentlyWatched
 
 @Database(entities = [RecentlyViewed::class, RecentlyWatched::class, SubjectAndLesson::class],version = 2)
 @TypeConverters(Converters::class)

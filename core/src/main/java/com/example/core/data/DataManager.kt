@@ -1,11 +1,10 @@
-package com.example.core.di.data
+package com.example.core.data
 
 import androidx.lifecycle.LiveData
-import com.example.core.di.model.ApiResponse
-import com.example.core.di.model.SubjectAndLesson
-import com.example.core.di.model.SubjectResponse
-import com.example.core.di.network.ULessonService
-import com.example.core.di.room.entities.RecentlyWatched
+import com.example.core.model.ApiResponse
+import com.example.core.model.SubjectAndLesson
+import com.example.core.model.SubjectResponse
+import com.example.core.room.entities.RecentlyWatched
 import retrofit2.Response
 
 interface DataManager {

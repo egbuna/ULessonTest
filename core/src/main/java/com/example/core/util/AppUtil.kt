@@ -1,4 +1,4 @@
-package com.example.core.di.util
+package com.example.core.util
 
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
