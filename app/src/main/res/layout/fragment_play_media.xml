@@ -2,9 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_color"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-
 
     <com.google.android.exoplayer2.ui.PlayerView
         android:id="@+id/video_player"
@@ -20,6 +20,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/ic_media_curve"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toBottomOf="@+id/video_player"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <ImageButton
         android:id="@+id/exit"
@@ -46,6 +56,7 @@
         android:textColor="@color/black"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
+        android:fontFamily="@font/mulish_semi_bold"
         app:layout_constraintTop_toBottomOf="@+id/video_player"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -56,6 +67,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textSize="12sp"
+        android:fontFamily="@font/mulish_regular"
         android:textColor="@color/exo_gray"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"

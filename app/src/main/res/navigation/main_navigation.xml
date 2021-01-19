@@ -12,13 +12,22 @@
         tools:layout="@layout/fragment_dashboard">
         <action
             android:id="@+id/action_dashBoardFragment_to_subjectDetailFragment"
-            app:destination="@id/subjectDetailFragment" />
+            app:destination="@id/subjectDetailFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
         <action
             android:id="@+id/action_dashBoardFragment_to_recentFragment"
-            app:destination="@id/recentFragment" />
+            app:destination="@id/recentFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
         <action
             android:id="@+id/action_dashBoardFragment_to_playMediaFragment"
-            app:destination="@id/playMediaFragment" />
+            app:destination="@id/playMediaFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
     </fragment>
 
     <fragment
@@ -32,7 +41,10 @@
             app:argType="com.example.core.di.model.SubjectAndLesson"/>
         <action
             android:id="@+id/action_subjectDetailFragment_to_playMediaFragment"
-            app:destination="@id/playMediaFragment" />
+            app:destination="@id/playMediaFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
     </fragment>
     <fragment
         android:id="@+id/playMediaFragment"
@@ -55,7 +67,10 @@
         tools:layout="@layout/fragment_recent">
         <action
             android:id="@+id/action_recentFragment_to_playMediaFragment"
-            app:destination="@id/playMediaFragment" />
+            app:destination="@id/playMediaFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
     </fragment>
 
 </navigation>
