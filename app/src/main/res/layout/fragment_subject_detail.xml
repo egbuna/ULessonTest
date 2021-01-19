@@ -8,23 +8,15 @@
 
     <ImageButton
         android:id="@+id/exit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_back_button"
-        android:layout_marginTop="32dp"
-        android:layout_marginStart="16dp"
+        style="@style/BackButtonStyle"
         android:background="@android:color/transparent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         tools:text="Biology"
-        android:textColor="@color/detail_title_color"
-        android:textSize="23dp"
-        android:layout_marginStart="17dp"
+        style="@style/TitleStyle"
         app:layout_constraintStart_toEndOf="@+id/exit"
         app:layout_constraintTop_toTopOf="@+id/exit"
         app:layout_constraintBottom_toBottomOf="@id/exit"/>

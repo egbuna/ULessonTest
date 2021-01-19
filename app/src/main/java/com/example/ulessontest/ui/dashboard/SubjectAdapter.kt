@@ -3,6 +3,7 @@ package com.example.ulessontest.ui.dashboard
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.core.di.model.SubjectAndLesson
@@ -36,6 +37,8 @@ class SubjectAdapter(val onCLick: (subject: SubjectAndLesson) -> Unit) : Recycle
 
     inner class ViewHolder(private val binding: SubjectsLayoutItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
+        private val context by lazy { binding.root.context }
+
         init {
             binding.root.setOnClickListener {
                 onCLick.invoke(subjects[adapterPosition])
@@ -43,13 +46,28 @@ class SubjectAdapter(val onCLick: (subject: SubjectAndLesson) -> Unit) : Recycle
         }
 
         fun onBind(subject: SubjectAndLesson) {
-            when(subject.name) {
-                "Physics" -> Glide.with(binding.subjectView.context).load(R.drawable.physics).into(binding.subjectView)
-                "Mathematics" -> Glide.with(binding.subjectView.context).load(R.drawable.mathematics).into(binding.subjectView)
-                "English" -> Glide.with(binding.subjectView.context).load(R.drawable.english).into(binding.subjectView)
-                "Chemistry" -> Glide.with(binding.subjectView.context).load(R.drawable.chemistry).into(binding.subjectView)
-                "Biology" -> Glide.with(binding.subjectView.context).load(R.drawable.biology).into(binding.subjectView)
-                else -> Glide.with(binding.subjectView.context).load(R.drawable.biology).into(binding.subjectView)
+            binding.subject.text = subject.name
+            when(subject.name.toLowerCase()) {
+                Subjects.PHY.value -> {
+                    binding.root.setCardBackgroundColor(ContextCompat.getColor(context, R.color.physics_subject_background))
+                    Glide.with(context).load(R.drawable.ic_physics_home_icon).into(binding.icon)
+                }
+                Subjects.MATHS.value -> {
+                    binding.root.setCardBackgroundColor(ContextCompat.getColor(context, R.color.maths_subject_background))
+                    Glide.with(context).load(R.drawable.ic_maths_home_icon).into(binding.icon)
+                }
+                Subjects.ENG.value -> {
+                    binding.root.setCardBackgroundColor(ContextCompat.getColor(context, R.color.english_subject_background))
+                    Glide.with(context).load(R.drawable.ic_english_home_icon).into(binding.icon)
+                }
+                Subjects.CHEMISTRY.value -> {
+                    binding.root.setCardBackgroundColor(ContextCompat.getColor(context, R.color.chemistry_subject_background))
+                    Glide.with(context).load(R.drawable.ic_chemistry_home_icon).into(binding.icon)
+                }
+                Subjects.BIO.value -> {
+                    binding.root.setCardBackgroundColor(ContextCompat.getColor(context, R.color.biology_subject_background))
+                    Glide.with(context).load(R.drawable.ic_biology_home_icon).into(binding.icon)
+                }
             }
         }
     }

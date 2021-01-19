@@ -22,7 +22,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:src="@drawable/sample_image_two"/>
+            tools:src="@drawable/sample_recent_image"/>
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/lesson_title"

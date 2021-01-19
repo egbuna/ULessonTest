@@ -14,14 +14,28 @@ import javax.inject.Inject
 
 class DashBoardRepository
     @Inject constructor(dispatcherProvider: DispatcherProvider, private val uLessonDataManager: ULessonDataManager) : BaseRepository(dispatcherProvider) {
-
-    suspend fun getSubjects(): LiveData<NetworkStatus<SubjectResponse>> {
-        return processResponseAsLiveData {
-            uLessonDataManager.getSubjectsAndDetails()
-        }
-    }
-
+    
     suspend fun fetchRecentlyWatchedVideo(): List<RecentlyWatched> {
         return withContext(dispatcherProvider.io()) {return@withContext uLessonDataManager.getRecentlyWatchedVideos()}
+    }
+
+    suspend fun getSubjectsData() = liveData<List<SubjectAndLesson>> {
+        when(val response = processResponse {uLessonDataManager.getSubjectsAndDetails()}) {
+            is NetworkStatus.Success -> {
+                val returnedData = withContext(dispatcherProvider.io()) {
+                    uLessonDataManager.saveSubjectData(response.data?.subjects!!)
+                    return@withContext uLessonDataManager.getSubjectData()
+                }
+
+                emit(returnedData)
+            }
+            else -> {
+                val returnedData = withContext(dispatcherProvider.io()) {
+                    return@withContext uLessonDataManager.getSubjectData()
+                }
+                emit(returnedData)
+            }
+        }
+
     }
 }

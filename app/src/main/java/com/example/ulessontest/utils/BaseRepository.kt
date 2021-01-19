@@ -11,6 +11,7 @@ import com.example.core.di.util.DispatcherProvider
 import com.example.core.di.util.NetworkConstant
 import com.google.gson.JsonSyntaxException
 import com.google.gson.reflect.TypeToken
+import kotlinx.coroutines.withContext
 import org.json.JSONException
 import retrofit2.HttpException
 import retrofit2.Response
@@ -21,6 +22,16 @@ import java.net.UnknownHostException
 import javax.net.ssl.SSLException
 
 abstract class BaseRepository(protected val dispatcherProvider: DispatcherProvider) {
+
+    protected suspend inline fun <reified ResponseType> processResponse(
+        crossinline block: suspend () -> Response<ApiResponse<ResponseType>>
+    ): NetworkStatus<ResponseType> {
+        return withContext(dispatcherProvider.io()) {
+            processResponseInternal(block) {
+                return@withContext it
+            }
+        }
+    }
 
     protected suspend inline fun <reified ResponseType> processResponseAsLiveData(
         crossinline block: suspend () -> Response<ApiResponse<ResponseType>>
@@ -41,7 +52,6 @@ abstract class BaseRepository(protected val dispatcherProvider: DispatcherProvid
     ): T {
         try {
             val response = block()
-            Log.e("STATUS", "status ${response.body()}")
             val responseMessage = response.body()?.data as SubjectResponse
             return if (response.isSuccessful && responseMessage.status == "success") {
                 returnResponse(

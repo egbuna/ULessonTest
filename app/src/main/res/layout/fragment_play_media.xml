@@ -23,49 +23,19 @@
 
     <ImageButton
         android:id="@+id/exit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_back_button"
-        android:layout_marginTop="32dp"
-        android:layout_marginStart="16dp"
+        style="@style/BackButtonStyle"
         android:background="@android:color/transparent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
-    <LinearLayout
-        android:id="@+id/control_container"
-        android:layout_width="0dp"
+    <ProgressBar
+        android:id="@+id/buffering"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:visibility="invisible"
-        app:layout_constraintTop_toTopOf="@+id/video_player"
+        app:layout_constraintStart_toStartOf="@id/video_player"
         app:layout_constraintEnd_toEndOf="@id/video_player"
-        app:layout_constraintBottom_toBottomOf="@+id/video_player"
-        app:layout_constraintStart_toStartOf="@id/video_player">
-
-        <ImageButton
-            android:id="@+id/rewind"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/media_rewind"
-            android:layout_marginEnd="30dp"
-            android:background="@android:color/transparent"/>
-
-        <ImageButton
-            android:id="@+id/play"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:src="@drawable/ic_pause"
-            android:background="@android:color/transparent"/>
-
-        <ImageButton
-            android:id="@+id/forward"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/media_forward"
-            android:layout_marginStart="30dp"
-            android:background="@android:color/transparent" />
-    </LinearLayout>
+        app:layout_constraintTop_toTopOf="@id/video_player"
+        app:layout_constraintBottom_toBottomOf="@id/video_player"/>
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/lesson_title"

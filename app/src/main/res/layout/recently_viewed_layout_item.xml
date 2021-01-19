@@ -10,10 +10,21 @@
         android:layout_width="120dp"
         android:layout_height="80dp"
         android:layout_marginStart="16dp"
+        android:scaleType="centerCrop"
         android:layout_marginTop="16dp"
-        android:background="@drawable/sample_image"
+        tools:background="@drawable/sample_recent_image"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/play_btn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        tools:src="@drawable/ic_biology_play"
+        app:layout_constraintTop_toTopOf="@+id/thumbnail"
+        app:layout_constraintStart_toStartOf="@id/thumbnail"
+        app:layout_constraintEnd_toEndOf="@id/thumbnail"
+        app:layout_constraintBottom_toBottomOf="@id/thumbnail"/>
 
     <TextView
         android:id="@+id/subject"

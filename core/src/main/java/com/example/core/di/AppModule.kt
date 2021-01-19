@@ -66,6 +66,10 @@ object AppModule {
     @Provides
     fun provideRecentlyWatchedDao(uLessonDatabase: ULessonDatabase) = uLessonDatabase.recentlyWatchedDao()
 
+    @Singleton
+    @Provides
+    fun provideSubjectDataDao(uLessonDatabase: ULessonDatabase) = uLessonDatabase.subjectDataDao()
+
 }
 
 @Module

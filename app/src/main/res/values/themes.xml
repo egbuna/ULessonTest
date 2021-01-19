@@ -13,4 +13,20 @@
         <item name="android:statusBarColor" tools:targetApi="l">@color/status_bar_color</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="TitleStyle">
+        <item name="android:textColor">@color/detail_title_color</item>
+        <item name="android:textSize">23sp</item>
+        <item name="android:layout_marginStart">17dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="BackButtonStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginTop">32dp</item>
+        <item name="srcCompat">@drawable/ic_back_button</item>
+    </style>
 </resources>

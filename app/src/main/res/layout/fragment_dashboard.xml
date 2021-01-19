@@ -40,7 +40,8 @@
                 tools:itemCount="5"
                 android:orientation="vertical"
                 android:nestedScrollingEnabled="false"
-                android:paddingEnd="16dp"
+                android:paddingEnd="10dp"
+                android:paddingStart="10dp"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -88,7 +89,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toTopOf="@+id/container"
-                tools:listitem="@layout/recently_viewed_layout_item" />
+                tools:listitem="@layout/recently_viewed_layout_item"
+                tools:ignore="RtlSymmetry" />
 
             <FrameLayout
                 android:id="@+id/container"
