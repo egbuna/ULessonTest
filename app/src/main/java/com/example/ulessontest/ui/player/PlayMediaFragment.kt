@@ -11,16 +11,19 @@ import com.example.ulessontest.databinding.FragmentPlayMediaBinding
 import com.example.ulessontest.ui.base.BaseFragment
 import com.global.gomoney.utils.viewbinding.viewBinding
 import com.google.android.exoplayer2.MediaItem
+import com.google.android.exoplayer2.Player
 import com.google.android.exoplayer2.SimpleExoPlayer
 import com.google.android.exoplayer2.ui.PlayerView
 import com.google.android.exoplayer2.util.Util
+import com.google.android.exoplayer2.video.VideoListener
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.fragment_play_media.*
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
 
 @AndroidEntryPoint
-class PlayMediaFragment : BaseFragment(R.layout.fragment_play_media) {
+class PlayMediaFragment : BaseFragment(R.layout.fragment_play_media), Player.EventListener {
 
     private val binding by viewBinding(FragmentPlayMediaBinding::bind)
     private val args by navArgs<PlayMediaFragmentArgs>()
@@ -44,6 +47,7 @@ class PlayMediaFragment : BaseFragment(R.layout.fragment_play_media) {
 
         binding.videoPlayer.setShowNextButton(false)
         binding.videoPlayer.setShowPreviousButton(false)
+        binding.videoPlayer.keepScreenOn = true
         binding.videoPlayer.setShowBuffering(PlayerView.SHOW_BUFFERING_WHEN_PLAYING)
 
     }
@@ -54,6 +58,7 @@ class PlayMediaFragment : BaseFragment(R.layout.fragment_play_media) {
             initializePlayer()
         }
     }
+
 
     override fun onResume() {
         super.onResume()
@@ -74,12 +79,9 @@ class PlayMediaFragment : BaseFragment(R.layout.fragment_play_media) {
         binding.videoPlayer.player = player
         val mediaItem = MediaItem.fromUri(lesson.mediaUrl)
         player?.setMediaItem(mediaItem)
+        player?.addListener(this)
         player?.seekTo(currentWindow, playbackPosition)
         player?.prepare()
-
-        viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.saveRecentlyWatchedVideo(buildRecentlyVideoData())
-        }
     }
 
     private fun buildRecentlyVideoData(): RecentlyWatched {
@@ -92,8 +94,19 @@ class PlayMediaFragment : BaseFragment(R.layout.fragment_play_media) {
             playWhenReady = player?.playWhenReady ?: false
             playbackPosition = player?.currentPosition ?: 0
             currentWindow = player?.currentWindowIndex ?: 1
+            player?.removeListener(this)
             player?.release()
             player = null
+        }
+    }
+
+    override fun onPlaybackStateChanged(state: Int) {
+        when(state) {
+            Player.STATE_READY -> {
+                viewLifecycleOwner.lifecycleScope.launch {
+                    viewModel.saveRecentlyWatchedVideo(buildRecentlyVideoData())
+                }
+            }
         }
     }
 }

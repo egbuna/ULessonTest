@@ -11,6 +11,12 @@
         android:layout_width="0dp"
         android:layout_height="242dp"
         app:use_controller="true"
+        app:show_timeout="5000"
+        app:resize_mode="fit"
+        app:hide_on_touch="true"
+        app:rewind_increment="10000"
+        app:controller_layout_id="@layout/custom_controller"
+        app:fastforward_increment="10000"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
