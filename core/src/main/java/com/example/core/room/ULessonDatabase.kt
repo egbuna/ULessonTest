@@ -8,10 +8,9 @@ import androidx.room.TypeConverters
 import com.example.core.model.SubjectAndLesson
 import com.example.core.room.dao.RecentlyWatchedDao
 import com.example.core.room.dao.SubjectsDataDao
-import com.example.core.room.entities.RecentlyViewed
 import com.example.core.room.entities.RecentlyWatched
 
-@Database(entities = [RecentlyViewed::class, RecentlyWatched::class, SubjectAndLesson::class],version = 2)
+@Database(entities = [RecentlyWatched::class, SubjectAndLesson::class],version = 1)
 @TypeConverters(Converters::class)
 abstract class ULessonDatabase : RoomDatabase() {
 
@@ -23,7 +22,6 @@ abstract class ULessonDatabase : RoomDatabase() {
         fun getInstance(context: Context): ULessonDatabase = buildDatabase(context)
 
         private fun buildDatabase(context: Context) = Room.databaseBuilder(context, ULessonDatabase::class.java, "ulesson")
-            .fallbackToDestructiveMigration()
             .build()
     }
 }
