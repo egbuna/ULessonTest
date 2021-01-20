@@ -1,10 +1,10 @@
-package com.example.core.di.room.dao
+package com.example.core.room.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.core.di.room.entities.RecentlyWatched
+import com.example.core.room.entities.RecentlyWatched
 
 @Dao
 interface RecentlyWatchedDao {

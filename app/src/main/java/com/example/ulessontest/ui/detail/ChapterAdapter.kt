@@ -4,8 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.core.di.model.Chapter
-import com.example.core.di.model.Lesson
+import com.example.core.model.Chapter
+import com.example.core.model.Lesson
 import com.example.ulessontest.R
 import com.example.ulessontest.databinding.ChaptersLayoutItemBinding
 

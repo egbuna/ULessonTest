@@ -1,7 +1,6 @@
-package com.example.core.di.model
+package com.example.core.model
 
 import androidx.annotation.Keep
-import com.google.gson.annotations.SerializedName
 
 @Keep
 data class ApiResponse<T>(

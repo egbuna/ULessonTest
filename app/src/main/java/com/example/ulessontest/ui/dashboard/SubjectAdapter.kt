@@ -1,16 +1,13 @@
 package com.example.ulessontest.ui.dashboard
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.core.di.model.SubjectAndLesson
+import com.example.core.model.SubjectAndLesson
 import com.example.ulessontest.R
 import com.example.ulessontest.databinding.SubjectsLayoutItemBinding
-import kotlinx.android.synthetic.main.fragment_dashboard.view.*
-import kotlinx.android.synthetic.main.subjects_layout_item.view.*
 
 class SubjectAdapter(val onCLick: (subject: SubjectAndLesson) -> Unit) : RecyclerView.Adapter<SubjectAdapter.ViewHolder>() {
 

@@ -1,13 +1,10 @@
 package com.example.ulessontest.ui.detail
 
 import android.view.View
-import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.core.di.model.MoreInfo
-import com.example.core.di.model.SubjectAndLesson
+import com.example.core.model.MoreInfo
 import com.example.ulessontest.R
 import com.example.ulessontest.databinding.FragmentSubjectDetailBinding
 import com.example.ulessontest.ui.base.BaseFragment

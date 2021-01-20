@@ -7,8 +7,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.core.di.model.Lesson
-import com.example.core.di.model.MoreInfo
+import com.example.core.model.Lesson
+import com.example.core.model.MoreInfo
 import com.example.ulessontest.R
 import com.example.ulessontest.databinding.FragmentDashboardBinding
 import com.example.ulessontest.ui.base.BaseFragment

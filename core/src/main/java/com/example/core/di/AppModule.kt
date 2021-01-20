@@ -2,12 +2,11 @@ package com.example.core.di
 
 import android.content.Context
 import com.example.core.BuildConfig
-import com.example.core.di.data.DataManager
-import com.example.core.di.data.ULessonDataManager
-import com.example.core.di.network.ULessonService
-import com.example.core.di.room.ULessonDatabase
-import com.example.core.di.util.DefaultDispatcherProvider
-import com.example.core.di.util.DispatcherProvider
+import com.example.core.data.DataManager
+import com.example.core.network.ULessonService
+import com.example.core.room.ULessonDatabase
+import com.example.core.util.DefaultDispatcherProvider
+import com.example.core.util.DispatcherProvider
 import dagger.Binds
 import dagger.Module
 import dagger.Provides

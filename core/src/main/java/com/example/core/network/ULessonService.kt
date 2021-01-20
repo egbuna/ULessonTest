@@ -1,7 +1,7 @@
-package com.example.core.di.network
+package com.example.core.network
 
-import com.example.core.di.model.ApiResponse
-import com.example.core.di.model.SubjectResponse
+import com.example.core.model.ApiResponse
+import com.example.core.model.SubjectResponse
 import retrofit2.Response
 import retrofit2.http.GET
 

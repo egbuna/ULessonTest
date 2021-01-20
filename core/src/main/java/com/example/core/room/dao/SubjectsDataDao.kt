@@ -1,11 +1,11 @@
-package com.example.core.di.room.dao
+package com.example.core.room.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.core.di.model.SubjectAndLesson
+import com.example.core.model.SubjectAndLesson
 
 @Dao
 interface SubjectsDataDao {

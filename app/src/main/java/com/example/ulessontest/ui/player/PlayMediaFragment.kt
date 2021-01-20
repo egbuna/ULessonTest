@@ -2,16 +2,14 @@ package com.example.ulessontest.ui.player
 
 import android.content.Context
 import android.net.ConnectivityManager
-import android.net.NetworkInfo
 import android.view.View
 import android.widget.ImageView
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
-import com.example.core.di.room.entities.RecentlyWatched
+import com.example.core.room.entities.RecentlyWatched
 import com.example.ulessontest.R
 import com.example.ulessontest.databinding.FragmentPlayMediaBinding
 import com.example.ulessontest.ui.base.BaseFragment
@@ -22,10 +20,8 @@ import com.google.android.exoplayer2.Player
 import com.google.android.exoplayer2.SimpleExoPlayer
 import com.google.android.exoplayer2.ui.PlayerView
 import com.google.android.exoplayer2.util.Util
-import com.google.android.exoplayer2.video.VideoListener
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.fragment_play_media.*
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*

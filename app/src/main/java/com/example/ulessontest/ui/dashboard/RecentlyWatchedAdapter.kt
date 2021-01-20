@@ -5,10 +5,9 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.CenterInside
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
-import com.example.core.di.room.entities.RecentlyWatched
+import com.example.core.room.entities.RecentlyWatched
 import com.example.ulessontest.R
 import com.example.ulessontest.databinding.RecentlyViewedLayoutItemBinding
 import java.text.SimpleDateFormat

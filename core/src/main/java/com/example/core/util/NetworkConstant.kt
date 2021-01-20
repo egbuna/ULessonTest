@@ -1,4 +1,4 @@
-package com.example.core.di.util
+package com.example.core.util
 
 object NetworkConstant {
     const val SOCKET_TIME_OUT_EXCEPTION = "Request timed out while trying to connect. Please ensure you have a strong signal and try again."
