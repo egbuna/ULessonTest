@@ -13,7 +13,7 @@ class DashBoardViewModel
     private val _getSubjectMutableLiveData = MutableLiveData<Unit>()
     val getSubjectLiveData = _getSubjectMutableLiveData.switchMap {
         liveData {
-            emitSource(dashBoardRepository.getSubjects())
+            emitSource(dashBoardRepository.getSubjectsData())
         }
     }
 
@@ -22,4 +22,5 @@ class DashBoardViewModel
     }
 
     suspend fun getRecentlyWatchedVideos() = dashBoardRepository.fetchRecentlyWatchedVideo()
+
 }

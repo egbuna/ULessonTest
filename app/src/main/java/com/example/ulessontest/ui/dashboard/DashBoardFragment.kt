@@ -3,13 +3,12 @@ package com.example.ulessontest.ui.dashboard
 import android.view.View
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.core.di.network.NetworkStatus
-import com.example.core.di.room.entities.RecentlyWatched
+import com.example.core.di.model.Lesson
+import com.example.core.di.model.MoreInfo
 import com.example.ulessontest.R
 import com.example.ulessontest.databinding.FragmentDashboardBinding
 import com.example.ulessontest.ui.base.BaseFragment
@@ -35,7 +34,9 @@ class DashBoardFragment : BaseFragment(R.layout.fragment_dashboard) {
         binding.subjectsRecyclerview.adapter = subjectAdapter
 
         recentlyWatchedAdapter = RecentlyWatchedAdapter {
-
+            val lesson = Lesson("", it.lesson, it.icon, it.mediaUrl, 0, 0)
+            val moreInfo = MoreInfo(it.subject, it.chapter)
+            findNavController().navigate(DashBoardFragmentDirections.actionDashBoardFragmentToPlayMediaFragment(lesson, moreInfo))
         }
 
         binding.viewAllBtn.setOnClickListener {
@@ -61,23 +62,13 @@ class DashBoardFragment : BaseFragment(R.layout.fragment_dashboard) {
     }
 
     private fun setUpObserver() {
-        viewModel.getSubjectLiveData.observe(viewLifecycleOwner, Observer {
-            when(it) {
-                is NetworkStatus.Loading -> {
-
-                }
-                is NetworkStatus.Error -> {
-
-                }
-                is NetworkStatus.Success -> {
-                    subjectAdapter.addSubjects(it.data!!.subjects)
-                    binding.subjectShimmer.shimmerRoot.visibility = View.GONE
-                    val constraintSet = ConstraintSet()
-                    constraintSet.clone(binding.root)
-                    constraintSet.connect(R.id.recent_title, ConstraintSet.TOP, R.id.subjects_recyclerview, ConstraintSet.BOTTOM, 25)
-                    constraintSet.applyTo(binding.root)
-                }
-            }
+        viewModel.getSubjectLiveData.observe(viewLifecycleOwner, {
+            subjectAdapter.addSubjects(it)
+            binding.subjectShimmer.shimmerRoot.visibility = View.GONE
+            val constraintSet = ConstraintSet()
+            constraintSet.clone(binding.root)
+            constraintSet.connect(R.id.recent_title, ConstraintSet.TOP, R.id.subjects_recyclerview, ConstraintSet.BOTTOM, 25)
+            constraintSet.applyTo(binding.root)
         })
     }
 }

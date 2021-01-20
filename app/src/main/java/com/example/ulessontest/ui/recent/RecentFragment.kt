@@ -5,9 +5,12 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.core.di.model.Lesson
+import com.example.core.di.model.MoreInfo
 import com.example.ulessontest.R
 import com.example.ulessontest.databinding.FragmentRecentBinding
 import com.example.ulessontest.ui.base.BaseFragment
+import com.example.ulessontest.ui.dashboard.DashBoardFragmentDirections
 import com.example.ulessontest.ui.dashboard.DashBoardViewModel
 import com.example.ulessontest.ui.dashboard.RecentlyWatchedAdapter
 import com.global.gomoney.utils.viewbinding.viewBinding
@@ -27,7 +30,9 @@ class RecentFragment : BaseFragment(R.layout.fragment_recent) {
         }
 
         recentlyWatchedAdapter = RecentlyWatchedAdapter {
-
+            val lesson = Lesson("", it.lesson, it.icon, it.mediaUrl, 0, 0)
+            val moreInfo = MoreInfo(it.subject, it.chapter)
+            findNavController().navigate(RecentFragmentDirections.actionRecentFragmentToPlayMediaFragment(lesson, moreInfo))
         }
         binding.recentlyWatchedRecyclerview.setHasFixedSize(true)
         binding.recentlyWatchedRecyclerview.layoutManager = LinearLayoutManager(requireContext())

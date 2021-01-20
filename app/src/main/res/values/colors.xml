@@ -17,4 +17,9 @@
     <color name="maths_color">#EA7052</color>
     <color name="physics_color">#7B7FDA</color>
     <color name="english_color">#506AAC</color>
+    <color name="maths_subject_background">#EA7052</color>
+    <color name="english_subject_background">#6967d1</color>
+    <color name="biology_subject_background">#68BC98</color>
+    <color name="chemistry_subject_background">#F9AD6D</color>
+    <color name="physics_subject_background">#7B7FDA</color>
 </resources>
