@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Ulesson Test</string>
+    <string name="view_all">View All</string>
+    <string name="recently_watched_topics">Recently watched topics</string>
+    <string name="hello_simbi">Hello Simbi</string>
+    <string name="recently_watched">Recently Watched</string>
+</resources>

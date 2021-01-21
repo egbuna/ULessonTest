@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/dashBoardFragment">
+
+    <fragment
+        android:id="@+id/dashBoardFragment"
+        android:name="com.example.ulessontest.ui.dashboard.DashBoardFragment"
+        android:label="DashBoardFragment"
+        tools:layout="@layout/fragment_dashboard">
+        <action
+            android:id="@+id/action_dashBoardFragment_to_subjectDetailFragment"
+            app:destination="@id/subjectDetailFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
+        <action
+            android:id="@+id/action_dashBoardFragment_to_recentFragment"
+            app:destination="@id/recentFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
+        <action
+            android:id="@+id/action_dashBoardFragment_to_playMediaFragment"
+            app:destination="@id/playMediaFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/subjectDetailFragment"
+        android:name="com.example.ulessontest.ui.detail.SubjectDetailFragment"
+        android:label="SubjectDetailFragment"
+        tools:layout="@layout/fragment_subject_detail">
+
+        <argument
+            android:name="subject"
+            app:argType="com.example.core.model.SubjectAndLesson"/>
+        <action
+            android:id="@+id/action_subjectDetailFragment_to_playMediaFragment"
+            app:destination="@id/playMediaFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/playMediaFragment"
+        android:name="com.example.ulessontest.ui.player.PlayMediaFragment"
+        android:label="PlayMediaFragment"
+        tools:layout="@layout/fragment_play_media">
+
+        <argument
+            android:name="lesson"
+            app:argType="com.example.core.model.Lesson"/>
+
+        <argument
+            android:name="info"
+            app:argType="com.example.core.model.MoreInfo"/>
+    </fragment>
+    <fragment
+        android:id="@+id/recentFragment"
+        android:name="com.example.ulessontest.ui.recent.RecentFragment"
+        android:label="RecentFragment"
+        tools:layout="@layout/fragment_recent">
+        <action
+            android:id="@+id/action_recentFragment_to_playMediaFragment"
+            app:destination="@id/playMediaFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
+    </fragment>
+
+</navigation>

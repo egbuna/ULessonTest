@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="title_color">#313848</color>
+    <color name="status_bar_color">#b0b0b0</color>
+    <color name="shimmer_bg">#D3D3D3</color>
+    <color name="detail_title_color">#313848</color>
+    <color name="background_color">#E5E5E5</color>
+    <color name="biology_color">#4DA47E</color>
+    <color name="chemistry_color">#F9AD6D</color>
+    <color name="maths_color">#EA7052</color>
+    <color name="physics_color">#7B7FDA</color>
+    <color name="english_color">#506AAC</color>
+    <color name="maths_subject_background">#EA7052</color>
+    <color name="english_subject_background">#6967d1</color>
+    <color name="biology_subject_background">#68BC98</color>
+    <color name="chemistry_subject_background">#F9AD6D</color>
+    <color name="physics_subject_background">#7B7FDA</color>
+</resources>
