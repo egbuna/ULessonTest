@@ -24,7 +24,7 @@ abstract class ViewBindingProperty<in R : Fragment, T : ViewBinding>(
     @MainThread
     override fun getValue(thisRef: R, property: KProperty<*>): T {
         val binding = binding
-        if (binding != null) {
+        if (binding != null && thisRef.view === binding.root) {
             return binding
         }
 
