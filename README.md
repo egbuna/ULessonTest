@@ -1,5 +1,4 @@
 # uLessonTest
-This app is written in Kotlin.
 
 This application uses the Model-View-Viewmodel (MVVM) architecture and [Single Activity achitecture](https://www.youtube.com/watch?v=2k8x8V77CrU) and also relies on ViewModel, Coroutine, Room and Livedata to save, consume and expose data. 
 
